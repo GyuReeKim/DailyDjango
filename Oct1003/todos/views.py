@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Todo
+from .models import Todo # 추가
 
 # Create your views here.
 def index(request):

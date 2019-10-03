@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'todos', # 추가
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

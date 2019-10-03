@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>Home</h1>
+  {% for todo in todos %}
+    <h4>{{todo.id}}</h4>
+    <h5>{{todo.title}} : {{todo.due_date|date:'Y-m-d'}}</h5>
+    <a href="/todos/{{todo.id}}/delete/">Delete</a>
+    <a href="/todos/{{todo.id}}/edit/">Edit</a>
+  {% endfor %}
+{% endblock %}

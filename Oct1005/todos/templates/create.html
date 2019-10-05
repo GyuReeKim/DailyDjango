@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>Create</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    Title : <input type="text" name="title">
+    Author : <input type="text" name="author">
+    Content : <input type="text" name="content">
+    Due Date : <input type="date" name="due-date">
+    <input type="submit">
+  </form>
+{% endblock %}

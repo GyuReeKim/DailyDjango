@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>Index</h1>
+  {% for todo in todos %}
+    <h3>{{todo.id}}. {{todo.title}}/{{todo.author}} - {{todo.due_date}}</h3>
+    <a href="{% url 'todos:delete' todo.id %}">삭제</a>
+    <a href="{% url 'todos:detail' todo.id %}">상세보기</a>
+  {% empty %}
+    <h3>Empty</h3>
+  {% endfor %}
+{% endblock %}

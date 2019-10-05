@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>Update</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    Title : <input type="text" name="title" value="{{todo.title}}">
+    Author : <input type="text" name="author" value="{{todo.author}}">
+    Content : <input type="text" name="content" value="{{todo.content}}">
+    Due Date : <input type="date" name="due-date" value="{{todo.due_date|date:'Y-m-d'}}">
+    <input type="submit">
+  </form>
+{% endblock %}

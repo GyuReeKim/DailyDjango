@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>Detail</h1>
+  <h2>{{todo.title}}</h2>
+  <h3>{{todo.author}} - {{todo.due_date}}</h3>
+  <h4>{{todo.content}}</h4>
+  <a href="{% url 'todos:delete' todo.id %}">삭제</a>
+  <a href="{% url 'todos:update' todo.id %}">수정</a>
+{% endblock %}

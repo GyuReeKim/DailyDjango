@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>Create</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    제목 : <input type="text" name="title">
+    작성자 : <input type="text" name="author">
+    내용 : <input type="text" name="content">
+    마감일 : <input type="date" name="due-date">
+    <input type="submit">
+  </form>
+{% endblock %}

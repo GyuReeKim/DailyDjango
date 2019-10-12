@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Movie</title>
+</head>
+<body>
+  <a href="{% url 'movies:index' %}">영화 목록</a>
+  <a href="{% url 'movies:create' %}">새 영화 등록</a>
+  <div class="container">
+    {% block body %}
+    {% endblock %}
+  </div>
+</body>
+</html>

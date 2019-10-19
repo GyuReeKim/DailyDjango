@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h1>index</h1>
+  {% for coffee in coffees %}
+    <h3>{{coffee.menu}}</h3>
+    <a href="{% url 'students:detail' coffee.id %}">detail</a>
+  {% endfor %}
+{% endblock %}

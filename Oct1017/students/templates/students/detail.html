@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h1>detail</h1>
+  <h3>{{coffee.menu}}</h3>
+  <h5>{{coffee.people}}</h5>
+  <h5>{{coffee.table}}</h5>
+  <a href="{% url 'students:update' coffee.id %}">수정</a>
+  <form action="{% url 'students:delete' coffee.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="삭제">
+  </form>
+  <hr>
+  <form action="{% url 'students:flavor_create' coffee.id %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+  </form>
+  {% for flavor in coffee.flavor_set.all %}
+    <h5>{{flavor.star}}점 - {{flavor.memo}}</h5>
+    <form action="{% url 'students:flavor_delete' coffee.id flavor.id %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="삭제">
+    </form>
+  {% endfor %}
+{% endblock %}

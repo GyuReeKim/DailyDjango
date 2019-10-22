@@ -1,0 +1,8 @@
+{% extends 'characters/base.html' %}
+{% block body %}
+  <h1>index</h1>
+  {% for big in bigs %}
+    {{big.name}}
+    <hr>
+  {% endfor %}
+{% endblock %}

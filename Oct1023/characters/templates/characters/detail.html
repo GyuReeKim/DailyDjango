@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h3>{{character.role}}</h3>
+  <h5>{{character.description}}</h5>
+  <h5>{{character.user}}</h5>
+  <h5>{{user}}</h5>
+  {% if user != character.user %}
+    {% if user in character.like_users.all %}
+      <a href="{% url 'characters:like' character.id %}">좋아요취소</a>
+    {% else %}
+      <a href="{% url 'characters:like' character.id %}">좋아요</a>
+    {% endif %}
+  {% endif %}
+  {{character.like_users.count}}
+{% endblock %}

@@ -19,11 +19,11 @@ def login(request):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect('accounts:signup')
+            return redirect('posts:index')
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/form.html', {'form': form})
 
 def logout(request):
     auth_logout(request)
-    return redirect('accounts:signup')
+    return redirect('posts:index')

@@ -5,6 +5,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from .models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def signup(request):
@@ -39,6 +40,7 @@ def user_page(request, user_id):
     user_info = get_object_or_404(User, id=user_id)
     return render(request, 'accounts/user_page.html', {'user_info': user_info})
 
+@login_required
 def follow(request, user_id):
     you = get_object_or_404(User, id=user_id)
     me = request.user
@@ -50,6 +52,7 @@ def follow(request, user_id):
             you.followers.add(me)
     return redirect('accounts:user_page', user_id)
 
+@login_required
 def delete(request, user_id):
     user_info = get_object_or_404(User, id=user_id)
     user = request.user
@@ -58,6 +61,7 @@ def delete(request, user_id):
         user.delete()
     return redirect('posts:index')
 
+@login_required
 def update(request, user_id):
     if request.method == "POST":
         form = CustomUserChangeForm(request.POST, instance=request.user)
@@ -68,6 +72,7 @@ def update(request, user_id):
         form = CustomUserChangeForm(instance=request.user)
     return render(request, 'accounts/form.html', {'form': form})
 
+@login_required
 def password(request, user_id):
     if request.method == "POST":
         form = PasswordChangeForm(request.user, request.POST)

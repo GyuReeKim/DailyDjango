@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>index</h1>
+  <a href="{% url 'infos:one_list' %}">One</a>
+  <a href="{% url 'infos:two_list' %}">Two</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>{{pick}}</h1>
+  {% for number in numbers %}
+    {% if pick == 'one' %}
+      <p>{{number.title}}</p>
+    {% else %}
+      <p>{{number.title}}</p>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
